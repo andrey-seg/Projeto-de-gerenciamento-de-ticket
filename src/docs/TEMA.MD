@@ -1,4 +1,4 @@
-O tema sorteado foi um gerenciador de tickets para evento sendo, o tema devera usar todos os metodos de padrão de projeto apresentados em sala de aula.
+O tema sorteado foi um gerenciador de tickets para  HelpDesk sendo, o tema devera usar todos os metodos de padrão de projeto apresentados em sala de aula.
 
 ![alt text](<Captura de tela de 2026-09-15 21-37-47.png>)
 
@@ -6,7 +6,7 @@ Está se trata da estrutura de notas que o trabalho ira seguir, sendo assim o tr
 
 Este projeto ira seguir a seguinte stack de tecnologia:
 
-- TypeScript 
+- TypeScript
 - HTML
 - CSS
 - Nodejs
