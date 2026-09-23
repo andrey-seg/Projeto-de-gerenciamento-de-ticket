@@ -7,9 +7,8 @@ Está se trata da estrutura de notas que o trabalho ira seguir, sendo assim o tr
 Este projeto ira seguir a seguinte stack de tecnologia:
 
 - TypeScript
-- HTML
-- CSS
 - Nodejs
+- JEST
 
 ## Como pacotes de node js será utilizado as dependencias de: chalk, Prettier, tsx ( compilador direto de typeScript, não gernado pasta dist);
 
