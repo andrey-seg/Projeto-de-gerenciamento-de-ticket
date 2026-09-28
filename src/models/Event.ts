@@ -13,7 +13,7 @@ export class Event{
 
     constructor(name: string, category: EventCategory){
 
-        this.__id = generateCustomID(Event);
+        this.__id = generateCustomID(this);
         this.__name = name;
         this.__category = category;
         this.__tickets = [];

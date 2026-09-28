@@ -13,16 +13,26 @@ export class Ticket{
     private __ownerName: string;
     private __createdAt: string;
 
-    constructor(type: TicketType, price: number, seatNumber: string, hasParking: boolean, isHalfPrice: boolean, ownerName: string){
+  constructor(
+        type: TicketType,
+        price: number,
+        ownerName: string,
+        seatNumber: string,
+        hasParking: boolean = false,  
+        isHalfPrice: boolean = false  
+    ) {
+    if (!seatNumber || seatNumber.trim() === "") {
+        throw new Error("O número do assento é obrigatório.");
+    }
 
-        this.__id = generateCustomID(Ticket);
-        this.__type = type;
-        this.__price = price;
-        this.__seatNumber = seatNumber;
-        this.__hasParking = hasParking;
-        this.__isHalfPrice = isHalfPrice
-        this.__ownerName = ownerName;
-        this.__createdAt = new Date().toISOString();
+    this.__id = generateCustomID(this);
+    this.__type = type;
+    this.__price = price;
+    this.__ownerName = ownerName;
+    this.__seatNumber = seatNumber;
+    this.__hasParking = hasParking;
+    this.__isHalfPrice = isHalfPrice;
+    this.__createdAt = new Date().toISOString();
     }
 
     applyDiscount(percentage: number): void{
@@ -35,7 +45,7 @@ export class Ticket{
             this.__price = this.__price / 2
         };
 
-        this.__price = this.__price - (percentage / 100);
+        this.__price = this.__price - (this.__price * (percentage / 100));
     }
 
     toString(): string{
