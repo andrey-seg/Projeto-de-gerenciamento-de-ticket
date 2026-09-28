@@ -1,4 +1,4 @@
-import { Ticket } from "../models/Ticket";
+import { Ticket } from "../../models/Ticket";
 
 export abstract class TicketFactory{
 
@@ -10,3 +10,7 @@ export abstract class TicketFactory{
         }
     }
 }
+
+/**
+ * ! Está classe serve apenas para a padronização do metodo createTicket em outras classes, importe a mesma com import nas classes necessarias.
+ */

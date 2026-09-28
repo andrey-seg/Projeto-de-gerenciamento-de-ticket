@@ -1,7 +1,7 @@
-import { } from "../factories/EventFamilyFactory";
+import { TicketFactory } from "../factories/ticket/TicketFactory";
 
 export interface IVentFamily{
-    createTicketFactory(): TicketFactoy;
+    createTicketFactory(): TicketFactory;
     createNotificationTemplate(): string;
     createMerchandiseTag(): string;
 }
