@@ -1,6 +1,6 @@
 import { IApiResponse } from "../interfaces/IApiResponse";
 import { TicketRepository } from "../repositories/TicketRepository";
-import { MusicShowTicket } from "../factories/eventFamily/MusicShowTicket"
+import { CorporateShowTicket } from "../factories/eventFamily/CorporateShowTicket"
 import { TicketType } from "../enums/TicketType";
 import { Ticket } from "../models/Ticket";
 import { TicketIssuerRegistry } from "../singletons/TicketIssuerRegistry";
@@ -11,7 +11,7 @@ export class TicketService{
 
     constructor(private __ticketRepository: TicketRepository){};
 
-    async issueTicketViaFactory(family: MusicShowTicket, type: TicketType, ownerName: string): Promise<IApiResponse<Ticket>>{
+    async issueTicketViaFactory(family: CorporateShowTicket, type: TicketType, ownerName: string): Promise<IApiResponse<Ticket>>{
 
         try{
             
