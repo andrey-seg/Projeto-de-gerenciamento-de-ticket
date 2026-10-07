@@ -11,14 +11,21 @@ export class TicketRepository implements IRepository<Ticket>{
 
             const findTicketById = this.__ticket.find((t) => t.getId() === id);
 
+            if(!findTicketById){
+                resolve( null );
+                return;
+            }
+
             resolve(findTicketById ?? null);
+            return;
         });
     }
 
     findAll(): Promise<Ticket[]> {
         
         return new Promise((resolve) => {
-            return this.__ticket;
+            resolve(this.__ticket);
+            return;
         });
     }
 
@@ -49,15 +56,14 @@ export class TicketRepository implements IRepository<Ticket>{
         })
     }
 
-    findByOwner(ownerName: string): Promise<Ticket | null>{
+    findByOwner(ownerName: string): Promise<Ticket>{
 
         return new Promise((resolve) => {
 
             const findByOwnerName = this.__ticket.find((t) => t.getOwnerName() === ownerName);
 
             if(!findByOwnerName){
-                resolve( null );
-                return;
+                throw new Error(`Cannot find owner ticket by name.`)
             }
 
             resolve( findByOwnerName );

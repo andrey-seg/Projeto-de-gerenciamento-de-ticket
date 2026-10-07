@@ -80,10 +80,29 @@ export class TicketService{
         }//? este metodo busca o original pelo id, caso ele não exista ele cria,.
     }
 
-    async getByOwner(ownerName: string): Promise<IApiResponse<Ticket[]>>{
+    async getByOwner(ownerName: string): Promise<IApiResponse<Ticket>>{
 
         try{
-            const ticket = await this.__ticketRepository.find
+            const tickets = await this.__ticketRepository.findByOwner(ownerName);
+            return { success: true, data: tickets };
+        }catch(error){
+            return { success: true, error: (error as Error).message };
+        }
+    }// realiza uma consulta pelo nome do usuario.
+
+    async getByTicketId(ticketId: string): Promise<IApiResponse<Ticket>>{
+
+        try{
+
+            const findTicketById = await this.__ticketRepository.findById(ticketId);
+
+            if(!findTicketById){
+                throw new Error(`Cannot find ticket by id.`);
+            }
+
+            return{ success: true, data: findTicketById };
+        }catch(error){
+            return { success: false, error: (error as Error).message };
         }
     }
 }
