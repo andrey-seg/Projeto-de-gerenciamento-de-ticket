@@ -48,4 +48,20 @@ export class TicketRepository implements IRepository<Ticket>{
             return
         })
     }
+
+    findByOwner(ownerName: string): Promise<Ticket | null>{
+
+        return new Promise((resolve) => {
+
+            const findByOwnerName = this.__ticket.find((t) => t.getOwnerName() === ownerName);
+
+            if(!findByOwnerName){
+                resolve( null );
+                return;
+            }
+
+            resolve( findByOwnerName );
+            return;
+        })
+    }
 }
