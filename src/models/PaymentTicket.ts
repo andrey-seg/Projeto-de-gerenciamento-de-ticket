@@ -3,7 +3,7 @@ import { formatCurrency } from "../common/formatCurrency";
 import { paymentType } from "../enums/paymentType";
 import { payementStatus } from "../enums/paymentStatus";
 
-export class paymentTicket{
+export class PaymentTicket{
 
     private __id: string;
     private __status: payementStatus;
@@ -14,7 +14,7 @@ export class paymentTicket{
 
     constructor(payerName: string, paymentType: paymentType, moneyReciver: string, price: number){
 
-        this.__id = generateCustomID(paymentTicket);
+        this.__id = generateCustomID(PaymentTicket);
         this.__status = payementStatus.NOT_PAYED;
         this.__paymentType = paymentType;
         this.__payerName = payerName;
@@ -59,6 +59,10 @@ export class paymentTicket{
 
     getPaymentType(): paymentType{
         return this.__paymentType;
+    }
+
+    getPayerName(): string{
+        return this.__payerName;
     }
 
     getMoneyReciver(): string{
